@@ -61,7 +61,10 @@ def main():
         if n_epi % 10 == 0:
             image = np.asanyarray(raw_x[10].reshape(IMG_SIZE,IMG_SIZE,N_CHANNELS) * 255, dtype=np.uint8)
             image = np.squeeze(image)
-            cv2.imshow("rerr", image)
+            plt.imshow(image)
+            plt.savefig("rerr.png")
+            plt.show()
+            #cv2.imshow("rerr", image)
             # cv2.waitKey(1)
 
         for t in range(EPISODE_LEN):
@@ -69,7 +72,10 @@ def main():
             #     # cv2.imwrite('./test_img/'+'ori%2d' % (t+c)+'.jpg', current_state.image[20].transpose(1, 2, 0) * 255)
                 image = np.asanyarray(current_state.image[10].reshape(IMG_SIZE,IMG_SIZE,N_CHANNELS) * 255, dtype=np.uint8)
                 image = np.squeeze(image)
-                cv2.imshow("rerr", image)
+                plt.imshow(image)
+                plt.savefig("temp.png")
+                plt.show()
+                # cv2.imshow("rerr", image)
                 # cv2.waitKey(1)
 
             previous_image = np.clip(current_state.image.copy(), a_min=0., a_max=1.)
